@@ -24,6 +24,9 @@ export default function Navbar() {
             <Link href="/profile" className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-lg">
               Profile
             </Link>
+            <Link href="/about" className="text-white hover:bg-blue-700 px-3 py-2 rounded-md text-lg">
+              About
+            </Link>
           </div>
           <div className="md:hidden">
             <button
