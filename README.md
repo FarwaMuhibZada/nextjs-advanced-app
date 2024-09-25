@@ -13,7 +13,7 @@
 
 
 ## DEMO 📺
-[Deployment Link](https://techinsights-farwamuhibzada22.netlify.app/)
+[Deployment Link](https://nextjs-advanced-app.vercel.app/)
 
 ### Installation 🔊
 ### Prerequisites
