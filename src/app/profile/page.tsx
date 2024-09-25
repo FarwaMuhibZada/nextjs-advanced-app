@@ -1,7 +1,9 @@
+// src/app/profile/page.tsx
 'use client'; // Mark the component as a Client Component
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import Image from 'next/image'; // Import the Image component
 
 interface User {
   id: number;
@@ -48,10 +50,12 @@ export default function Profile() {
             <Link href={`/profile/${user.id}`} className="flex flex-col items-center p-6 hover:bg-gray-100 transition duration-200">
               {/* Placeholder image for each user */}
               <div className="relative mb-4">
-                <img
+                <Image
                   src={`https://via.placeholder.com/150?text=${user.name}`} // Replace with actual user image if available
-                  alt={`${user.name}&apos;s profile picture`} // Escaped single quote
-                  className="w-24 h-24 rounded-full border-4 border-lightBlue object-cover"
+                  alt={`${user.name}'s profile picture`} // Escaped single quote removed
+                  width={96} // Set width for Image component
+                  height={96} // Set height for Image component
+                  className="rounded-full border-4 border-lightBlue object-cover"
                 />
               </div>
               <h2 className="text-2xl font-semibold text-navyBlue mb-2">{user.name}</h2>

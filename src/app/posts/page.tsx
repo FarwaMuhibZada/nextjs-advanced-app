@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image'; // Import the Image component
 
 interface Post {
   id: number;
@@ -26,8 +27,11 @@ export default async function BlogPosts() {
           <li key={post.id} className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
             <Link href={`/posts/${post.id}`} className="block">
               <div className="relative">
-                <img
-                  src={`https://via.placeholder.com/400x250?text=Post+${post.id}`}
+                <Image
+                  src={`https://via.placeholder.com/400x250?text=Post+${post.id}`} // Use Image component
+                  alt={`Image for post ${post.id}`} // Add meaningful alt text
+                  width={400} // Specify width
+                  height={250} // Specify height
                   className="w-full h-48 object-cover" 
                 />
                 <div className="absolute top-0 left-0 bg-lightBlue text-white text-xs font-bold px-2 py-1 rounded-br-lg">
