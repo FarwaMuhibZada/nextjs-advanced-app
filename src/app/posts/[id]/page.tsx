@@ -21,9 +21,21 @@ export default async function PostPage({ params }: { params: { id: string } }) {
   const post: Post = await fetchPost(params.id);
 
   return (
-    <div className="max-w-4xl mx-auto py-10">
-      <h1 className="text-3xl font-bold mb-6">{post.title}</h1>
-      <p className="text-lg">{post.body}</p>
+    <div className="max-w-4xl mx-auto py-10 px-6 bg-white rounded-lg shadow-lg mt-10">
+      <div className="bg-gradient-to-r from-lightBlue to-navyBlue p-6 rounded-lg mb-8">
+        <h1 className="text-4xl font-extrabold text-white mb-4">{post.title}</h1>
+      </div>
+      
+      <p className="text-lg text-gray-700 leading-relaxed tracking-wide mb-8">
+        {post.body}
+      </p>
+      
+      <div className="flex justify-end">
+        <a href="/posts" className="text-lightBlue font-semibold hover:text-navyBlue transition duration-300">
+          Back to Posts
+        </a>
+      </div>
     </div>
   );
 }
+

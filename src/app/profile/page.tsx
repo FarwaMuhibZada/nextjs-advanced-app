@@ -20,19 +20,29 @@ export default async function Profile() {
   const users: User[] = await fetchUsers();
 
   return (
-    <div className="max-w-3xl mx-auto py-10">
-      <h1 className="text-5xl font-bold mb-6 text-center text-gray-800">User Profiles</h1>
-      <div className="bg-white shadow-lg rounded-lg p-6">
-        <ul className="space-y-4">
-          {users.map((user) => (
-            <li key={user.id} className="bg-gray-50 border border-gray-200 rounded-md hover:shadow-lg transition-shadow duration-300">
-              <Link href={`/profile/${user.id}`} className="flex justify-between items-center p-4 hover:bg-gray-100">
-                <span className="text-lg font-semibold text-blue-600">{user.name}</span>
-                <span className="text-gray-600">{user.email}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+    <div className="max-w-7xl mx-auto py-10 px-6">
+      <h1 className="text-5xl font-bold mb-12 text-center text-navyBlue">User Profiles</h1>
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {users.map((user) => (
+          <div
+            key={user.id}
+            className="bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden transition-transform transform hover:-translate-y-2"
+          >
+            <Link href={`/profile/${user.id}`} className="flex flex-col items-center p-6 hover:bg-gray-100 transition duration-200">
+              {/* Placeholder image for each user */}
+              <div className="relative mb-4">
+                <img
+                  src={`https://via.placeholder.com/150?text=${user.name}`} // Replace with actual user image if available
+                  alt={`${user.name}'s profile picture`}
+                  className="w-24 h-24 rounded-full border-4 border-lightBlue object-cover"
+                />
+              </div>
+              <h2 className="text-2xl font-semibold text-navyBlue mb-2">{user.name}</h2>
+              <p className="text-gray-600 mb-1">{user.email}</p>
+              <p className="text-gray-700">Phone: <span className="font-semibold text-gray-900">{user.phone}</span></p>
+            </Link>
+          </div>
+        ))}
       </div>
     </div>
   );

@@ -1,6 +1,4 @@
-// src/app/profile/[id]/page.tsx
-
-'use client'; // Mark this component as a Client Component
+'use client';
 
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
