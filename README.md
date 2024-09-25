@@ -1,6 +1,6 @@
 
 # Next.js Advanced Application 💾
-Welcome to the Tech Insights Blog! This project is a simple multi-page website built using Next.js 14, TypeScript, and Tailwind CSS. It features a homepage, an about page, and a contact page with form validation.
+ is a Next.js web application that allows users to view blog posts, explore user profiles, and discover team insights. The platform supports both Static Site Generation (SSG) and Server-Side Rendering (SSR) for efficient data handling. The app features a responsive design powered by Tailwind CSS, making it accessible on all devices.
 
 ## Features 🎉
 - **Home Page**: A welcoming introduction to the application with navigation links to other sections.
