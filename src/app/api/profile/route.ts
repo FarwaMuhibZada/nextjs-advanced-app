@@ -7,6 +7,9 @@ export async function GET() {
 
     return NextResponse.json(profile);
   } catch (error) {
+    // Log the error for debugging purposes
+    console.error('Error fetching profile data:', error);
+
     return NextResponse.json({ message: 'Error fetching profile data' }, { status: 500 });
   }
 }

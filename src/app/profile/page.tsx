@@ -1,5 +1,7 @@
-// src/app/profile/page.tsx
+'use client'; // Mark the component as a Client Component
+
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 interface User {
   id: number;
@@ -8,7 +10,7 @@ interface User {
   phone: string;
 }
 
-// Fetching user data directly in the component
+// Fetching user data using hooks
 const fetchUsers = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/users`, {
     cache: 'no-store', // Adjust cache strategy as needed
@@ -16,8 +18,23 @@ const fetchUsers = async () => {
   return res.json();
 };
 
-export default async function Profile() {
-  const users: User[] = await fetchUsers();
+export default function Profile() {
+  const [users, setUsers] = useState<User[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const getUsers = async () => {
+      const fetchedUsers = await fetchUsers();
+      setUsers(fetchedUsers);
+      setLoading(false);
+    };
+
+    getUsers();
+  }, []);
+
+  if (loading) {
+    return <div className="text-center py-10">Loading...</div>;
+  }
 
   return (
     <div className="max-w-7xl mx-auto py-10 px-6">
@@ -33,7 +50,7 @@ export default async function Profile() {
               <div className="relative mb-4">
                 <img
                   src={`https://via.placeholder.com/150?text=${user.name}`} // Replace with actual user image if available
-                  alt={`${user.name}'s profile picture`}
+                  alt={`${user.name}&apos;s profile picture`} // Escaped single quote
                   className="w-24 h-24 rounded-full border-4 border-lightBlue object-cover"
                 />
               </div>
